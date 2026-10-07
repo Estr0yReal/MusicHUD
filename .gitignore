@@ -1,0 +1,23 @@
+# SwiftPM
+.build/
+.build-cache/
+.swiftpm/
+Package.resolved
+
+# Assembled app bundle
+build/
+
+# Xcode
+*.xcodeproj
+*.xcworkspace
+xcuserdata/
+DerivedData/
+
+# macOS
+.DS_Store
+
+# Snapshots contain real Music.app content (album artwork, track names, window
+# positions) captured from the development machine. The written audits under
+# docs/ are published; the screenshots are not.
+docs/**/*.png
+docs/*.png
