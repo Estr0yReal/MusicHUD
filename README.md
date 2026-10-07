@@ -1,8 +1,14 @@
+<div align="center">
+
 # Music HUD
 
 A translucent desktop music HUD for macOS: Apple Music now-playing info, a real-time
 audio spectrum, and a retro digital display, combined into one small always-on-top
 glass card that sits on your wallpaper.
+
+**🇺🇸 English README** | [🇨🇳 中文 README](README_zh-CN.md)
+
+</div>
 
 > **Current status: Phase 7 — macOS native UX and product polish.** Version 1.0.0 (7).
 > Menu-bar utility behaviour verified, permission states honest, window recovery
@@ -102,7 +108,7 @@ Or for a development cycle: `swift build && swift run MusicHUD`
 ./scripts/test.sh
 ```
 
-**109 unit tests.** They run with no Music.app, no Automation permission and no Apple
+**264 unit tests.** They run with no Music.app, no Automation permission and no Apple
 Events: the provider is driven through the `MusicClient` seam by `MockMusicClient`, and
 the Apple Event decoder is exercised against hand-built descriptors.
 
@@ -350,7 +356,7 @@ Music.app
   → magnitude                           (vDSP_zvmags, sqrt)
   → amplitude normalisation             (window coherent gain + vDSP's 2x factor)
   → dBFS                                (20·log10)
-  → 48 log-spaced bands, 20 Hz … 20 kHz
+  → 64 log-spaced bands, 20 Hz … 20 kHz
   → noise floor + dynamic range         (map to 0…1)
   → asymmetric attack / release         (smoothing)
   → SpectrumFrame                       (the only thing the renderer sees)
@@ -385,7 +391,7 @@ FFTs all report the same level for the same audio — also asserted by a test.
 
 ### Band mapping
 
-48 bands from 20 Hz to 20 kHz in a geometric progression, each aggregated as the RMS
+64 bands from 20 Hz to 20 kHz in a geometric progression, each aggregated as the RMS
 of its bins rather than the maximum, because a single bin peak jitters frame to frame
 and reads as noise. Below roughly 100 Hz a band is *narrower* than one FFT bin, so a
 low tone's energy legitimately splits across two adjacent bands; this is documented
@@ -445,7 +451,6 @@ delivered audio is never rebuilt, so a quiet passage cannot tear down a working 
 ## Phase 5 — visual polish
 
 Reference audit and per-item results: `docs/phase5-reference-audit.md`.
-Snapshot set: `docs/phase5/`.
 
 ### What changed
 
