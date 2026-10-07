@@ -21,3 +21,9 @@ DerivedData/
 # docs/ are published; the screenshots are not.
 docs/**/*.png
 docs/*.png
+
+# The two README hero images are the exception: both are captured with the demo
+# data source, so they show fictional tracks and generated placeholder artwork
+# and contain nothing from a real music library.
+!docs/snapshot-hud.png
+!docs/snapshot-hud-zh.png

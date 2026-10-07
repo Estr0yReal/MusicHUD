@@ -8,7 +8,7 @@
 
 </div>
 
-![Music HUD](docs/snapshot-hud.png)
+![Music HUD](docs/snapshot-hud-zh.png)
 
 ---
 
